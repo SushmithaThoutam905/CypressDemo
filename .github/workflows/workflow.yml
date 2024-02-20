@@ -24,4 +24,9 @@ jobs:
  
       - name: Run Cypress tests
         run: npm run cypress:run
+
+      - name: Upload test results        
+        uses: cypress-io/github-action@v2        
+        with:          
+          files: '**/cypress/results/*.xml'  # Adjust the path to match your actual test result files
         
