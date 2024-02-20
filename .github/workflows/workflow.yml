@@ -28,5 +28,5 @@ jobs:
       - name: Upload test results        
         uses: cypress-io/github-action@v2        
         with:          
-          files: '**/cypress/results/*.xml'  # Adjust the path to match your actual test result files
+          files: '**/cypress/results/test-results.xml'  # Adjust the path to match your actual test result files
         
