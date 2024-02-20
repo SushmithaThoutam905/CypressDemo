@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SushmithaThoutam905/CypressDemo/issues"
   },
-  "homepage": "https://github.com/SushmithaThoutam905/CypressDemo#readme"
+  "homepage": "https://github.com/SushmithaThoutam905/CypressDemo#readme",
+  "devDependencies": {
+    "cypress": "^13.6.4"
+  }
 }
