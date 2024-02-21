@@ -11,7 +11,7 @@ module.exports = defineConfig({
 
       // Listen for the 'run:end' event to generate the JUnit report
       on("run:end", (runResults) => {
-        if (runResults.totalFailed > 0) {
+        if (runResults && runResults.totalFailed > 0) {
           // Only generate the JUnit report if there are failed tests
           junitReporter.epilogue(runResults.stats);
         }
