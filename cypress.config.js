@@ -1,30 +1,21 @@
 const { defineConfig } = require("cypress");
 const MochaJUnitReporter = require("mocha-junit-reporter");
-const mocha = require("mocha");
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
+      // Register the JUnit reporter
       const junitReporter = new MochaJUnitReporter({
-        mochaFile: "test-results/results-[hash].xml", // Set the path for JUnit XML report
+        mochaFile: "test-results/results-[hash].xml",
       });
 
-      on("before:browser:launch", (browser, launchOptions) => {
-        // modify browser launch options
-        return launchOptions;
-      });
-
-      on("task", {
-        // add custom task listener
-      });
-
-      on("after:spec", (spec, results) => {
-        if (results && results.stats) {
-          junitReporter.epilogue(results.stats);
+      // Listen for the 'run:end' event to generate the JUnit report
+      on("run:end", (runResults) => {
+        if (runResults.totalFailed > 0) {
+          // Only generate the JUnit report if there are failed tests
+          junitReporter.epilogue(runResults.stats);
         }
       });
-
-      config.reporter = junitReporter;
     },
   },
-});;
+});
