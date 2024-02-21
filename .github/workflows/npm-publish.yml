@@ -37,8 +37,3 @@ jobs:
       - name: Run Cypress tests
         run: npm run cypress:run -- --config-file=cypress.config.js
 
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results
-          path: test-results
