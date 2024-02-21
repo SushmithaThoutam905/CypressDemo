@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open --config-file=cypress.config.js",
+    "cypress:run": "cypress run --config-file=cypress.config.js --reporter junit"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,6 @@
   },
   "homepage": "https://github.com/SushmithaThoutam905/CypressDemo#readme",
   "devDependencies": {
-    "cypress": "^13.6.4"
+    "cypress": "^13.6.5"
   }
 }
