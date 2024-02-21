@@ -21,6 +21,14 @@ jobs:
         with:
           node-version: 14
 
+      - name: Cache Cypress
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install dependencies
         run: npm install
 
