@@ -37,3 +37,10 @@ jobs:
       - name: Run Cypress tests
         run: npm run cypress:run -- --config-file=cypress.config.js
 
+      - name: Save build folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+
