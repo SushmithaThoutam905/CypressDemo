@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/SushmithaThoutam905/CypressDemo#readme",
   "devDependencies": {
-    "cypress": "^13.6.5"
+    "cypress": "^13.6.5",
+    "mocha-junit-reporter": "^2.2.1",
   }
 }
