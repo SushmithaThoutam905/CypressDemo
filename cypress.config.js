@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const MochaJUnitReporter = require("mocha-junit-reporter");
+const mocha = require("mocha");
 
 module.exports = defineConfig({
   e2e: {
