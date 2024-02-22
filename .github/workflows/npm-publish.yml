@@ -42,3 +42,10 @@ jobs:
         with:
           name: test-results
           path: cypress/results
+
+      - name: Save Cypress Test Videos
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-videos
+          path: cypress/videos
