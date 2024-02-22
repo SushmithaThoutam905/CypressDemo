@@ -1,10 +1,10 @@
 describe('template spec', () => {
   it('passes', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    cy.title().should('eq','OrangeHRM')
+    cy.visit('https://www.carwale.com')
+    cy.title().should('eq','carwale')
   })
   it('fails', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('https://www.carwale.com')
     cy.title().should('eq','OrangeHRM12')
   })
 })
