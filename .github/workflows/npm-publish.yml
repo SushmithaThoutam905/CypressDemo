@@ -35,3 +35,10 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run cypress:run -- --config-file=cypress.config.js
+        
+      - name: Save JUnit Test Results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: cypress/results/index.html
