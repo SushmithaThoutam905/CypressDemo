@@ -1,4 +1,6 @@
 const { defineConfig } = require("cypress");
+const currentDate = new Date().toISOString().replace(/:/g, '-');
+const reportFilename = `cypress-report-${currentDate}.html`;
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
@@ -8,8 +10,10 @@ module.exports = defineConfig({
     reportPageTitle: 'custom-title',
     embeddedScreenshots: true,
     inlineAssets: true,
-    saveAllAttempts: false,
-    debug: true
+    saveAllAttempts: true,
+    debug: true,
+    overwrite: false,
+    reportFilename: reportFilename
   },
   e2e: {
     setupNodeEvents(on, config) {
