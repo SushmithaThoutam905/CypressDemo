@@ -23,3 +23,10 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// cypress/support/commands.js
+Cypress.Commands.add('customSetup', () => {
+    cy.visit('https://www.carwale.com/');
+    // Add any additional setup commands here
+  });
+  
