@@ -1,6 +1,6 @@
 describe('CarWale Website Tests', () => {
   beforeEach(() => {
-    cy.customSetup();
+    cy.visitURL();
   });
 
   it('should load the homepage', () => {
@@ -28,28 +28,15 @@ describe('CarWale Website Tests', () => {
     });
   });
 });
-  it('should click on each navigation link under new cars', () => {
-    cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').wait(3000);
-      cy.get('.o-cpnuEd').find('div.oROWc7').each(($el,index) => {
-      cy.wrap($el).click();
-      cy.url().should('include', getExpectedUrl(index));
+  it('should click on each navigation link under new cars', async() => {
+    const urls = await cy.fixture('urls').then((urls) => {
+      // Iterate through each URL
+      urls.expectedUrls.forEach((expectedUrl, index) => {
+        // Perform actions with each URL
+        cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').wait(2000);
+        cy.get('.o-cpnuEd').find('div.oROWc7').eq(index).click();
+        cy.url().should('include', expectedUrl);
+      });
     });
-  });
-  function getExpectedUrl(index) {
-    const expectedUrls = [
-      'https://www.carwale.com/new-cars/',
-      'https://www.carwale.com/upcoming-cars/',
-      'https://www.carwale.com/car-loan/',
-      'https://www.carwale.com/new-car-launches/',
-      'https://www.carwale.com/new/electric-cars/',
-      'https://www.carwale.com/compare-cars/',
-      'https://www.carwale.com/dealer-showrooms/',
-      'https://www.carwale.com/images/',
-      'https://www.carwale.com/car-discount-offers/',
-      'https://www.carwale.com/videos/',
-      'https://www.carwale.com/videos/',
-      'https://www.carwale.com/videos/'
-    ];
-    return expectedUrls[index];
-  }
+  })
 })

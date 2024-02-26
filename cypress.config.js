@@ -3,6 +3,7 @@ const currentDate = new Date().toISOString().replace(/:/g, '-');
 const reportFilename = `cypress-report-${currentDate}.html`;
 
 module.exports = defineConfig({
+  chromeWebSecurity: false,
   video: true, // Enable video recording
   videoUploadOnPasses: false, // Do not upload videos for passing tests
   videoCompression: 32, // Adjust video compression quality (optional)
