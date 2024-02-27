@@ -31,3 +31,34 @@ Cypress.Commands.add('visitURL', () => {
     // Add any additional setup commands here
   });
   
+  Cypress.Commands.add('selectCar', (brand, car, type, model) => {
+    cy.get('.o-bTDyCI')
+      .find('div.o-bfyaNx')
+      .find('img.o-bXKmQE[title="Select Car"]')
+      .eq(1)
+      .click({ force: true })
+      .wait(3000);
+  
+    cy.get('.o-cYOpxG')
+      .find('ul.o-eCFISO')
+      .first()
+      .find(`div.o-cpnuEd[data-make="${brand}"]`)
+      .click();
+  
+    cy.get(`li.o-fzptVd[data-model="${car}"]`)
+      .first()
+      .click({ force: true });
+  
+    cy.get('.o-eoatGj')
+      .find('label.o-frwuxB')
+      .find('div.o-brXWGL')
+      .find('span.o-cKuOoN')
+      .contains(type)
+      .click();
+  
+    cy.get('li.o-fznJzu')
+      .find('p.o-bqHweY')
+      .contains(model)
+      .click();
+  });
+  

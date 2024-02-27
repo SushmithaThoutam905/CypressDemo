@@ -1,4 +1,4 @@
-describe('CarWale Website Tests', () => {
+describe('CarWale Compare Cars', () => {
   beforeEach(() => {
     cy.visitURL();
   });
