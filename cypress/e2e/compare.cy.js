@@ -17,17 +17,15 @@ describe('CarWale Compare Cars', () => {
       .click();
   
     cy.wait(3000);
-  
+    const cars = cy.fixture('cardetails').then((cars) => {
     // Select first car for comparison
-    cy.selectCar('Maruti Suzuki', 'Fronx', 'Automatic', 'Alpha 1.0L Turbo 6 AT Dual Tone');
+    cy.selectCar(cars.cars[0].brand, cars.cars[0].carname, cars.cars[0].type, cars.cars[0].model);
   
     // Select second car for comparison
-    cy.selectCar('Tata', 'Altroz', 'Automatic', 'XZA Petrol');
-  
+    cy.selectCar(cars.cars[1].brand, cars.cars[1].carname, cars.cars[1].type, cars.cars[1].model);
+    })
     // Click on compare cars
     cy.get('.o-fznVme').contains('Compare').click();
-  
     cy.wait(3000);
-  });
-  
+  }); 
 })
