@@ -31,7 +31,7 @@ Cypress.Commands.add('visitURL', () => {
     // Add any additional setup commands here
   });
   
-  Cypress.Commands.add('selectCar', (brand, car, type, model) => {
+Cypress.Commands.add('selectCar', (brand, carname, type, model) => {
     cy.get('.o-bTDyCI')
       .find('div.o-bfyaNx')
       .find('img.o-bXKmQE[title="Select Car"]')
@@ -45,7 +45,7 @@ Cypress.Commands.add('visitURL', () => {
       .find(`div.o-cpnuEd[data-make="${brand}"]`)
       .click();
   
-    cy.get(`li.o-fzptVd[data-model="${car}"]`)
+    cy.get(`li.o-fzptVd[data-model="${carname}"]`)
       .first()
       .click({ force: true });
   
