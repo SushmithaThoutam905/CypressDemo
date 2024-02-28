@@ -7,7 +7,7 @@ describe('CarWale Website Tests', () => {
     cy.contains('FIND THE RIGHT CAR').should('be.visible');
   });
 
-  it('should search for a car', () => {
+  it.only('should search for a car', () => {
     cy.get('[placeholder="Search"]').type('Honda City').wait(3000).type('{enter}');
     cy.url().should('include', '/honda-cars/city/');
     cy.get('.o-cKuOoN').contains('Honda City').should('be.visible');

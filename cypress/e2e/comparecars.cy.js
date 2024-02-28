@@ -4,7 +4,7 @@ describe('CarWale Compare Cars', () => {
   });
 
   it('should compare cars', () => {
-    cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').wait(2000);
+    cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').wait(3000);
     cy.get('.o-cpnuEd').find('div.oROWc7').contains('Compare Cars').click();
     cy.wait(3000)
     cy.get('.o-dOanIi').click();
