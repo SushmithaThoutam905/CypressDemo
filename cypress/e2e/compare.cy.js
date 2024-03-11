@@ -27,5 +27,8 @@ describe('CarWale Compare Cars', () => {
     // Click on compare cars
     cy.get('.o-fznVme').contains('Compare').click();
     cy.wait(3000);
+
+    cy.get('.o-frwuxB').children().find('input.o-bfyaNx').click();
+
   }); 
 })
