@@ -28,7 +28,12 @@ describe('CarWale Compare Cars', () => {
     cy.get('.o-fznVme').contains('Compare').click();
     cy.wait(3000);
 
-    cy.get('.o-frwuxB').children().find('input.o-bfyaNx').click();
+    cy.get('.o-frwuxB').as('parent')
+    .children()
+    .contains('span.o-cKuOoN','Hide common features').click();
+    cy.get('@parent')
+    .children()
+    .contains('span.o-cKuOoN','Highlight differences').click();
 
   }); 
 })
