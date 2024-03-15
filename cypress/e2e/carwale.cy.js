@@ -4,10 +4,16 @@ describe('CarWale Website Tests', () => {
   });
 
   it('should load the homepage', () => {
+    
+    cy.get('div.o-eWcEwo').click()
+    cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()
     cy.contains('FIND THE RIGHT CAR').should('be.visible');
   });
 
   it('should search for a car', () => {
+    
+    cy.get('div.o-eWcEwo').click()
+    cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()
     cy.get('[placeholder="Search"]').type('Honda City').wait(3000).type('{enter}');
     cy.url().should('include', '/honda-cars/city/');
     cy.get('.o-cKuOoN').contains('Honda City').should('be.visible');
@@ -34,12 +40,6 @@ describe('CarWale Website Tests', () => {
             });
           });
         }
-        // cy.wrap($el).click();
-        // cy.get('.voh2vm').then(($popup) => {
-        //   if ($popup.is(':visible')) {
-        //     cy.get('.o-frwuxB').find('svg').first().scrollIntoView().click({force:true}); 
-        //     }
-        // });
     });
   });
   it('should click on each navigation link under new cars', async() => {
