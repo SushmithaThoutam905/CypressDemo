@@ -41,7 +41,7 @@ describe('Cars', () => {
     // cy.get('.o-dOanIi').first().click();
     cy.get('ul>li')
     .find('div.o-cpNAVm')
-    .contains('Tata').click()
+    .contains('Tata').click({force:true})
 
     cy.contains('More Filter').click();
     cy.get('ul>li').find('div.o-cpnuEd')

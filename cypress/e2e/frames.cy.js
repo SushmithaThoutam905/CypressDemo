@@ -1,43 +1,33 @@
-const { select } = require("xpath");
+// const { select } = require("xpath");
 
 describe('Cars', () => {
   beforeEach(() => {
     cy.visitURL();
   });
 
-  it.only('iframes', () => {
-    
+  it('iframes', () => {   
     cy.get('div.o-eWcEwo').click()
     cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()
-
-    // .find('div.o-brXWGL')
-    // .find('div.o-cKuOoN')
-    // cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').wait(3000);
-
-    
-  })  
-  // it('checkbox', () => {
-  //   cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').wait(3000);
-
-  //   cy.get('.o-cpnuEd').find('div.oROWc7').contains('Find New Cars').click().wait(2000);
-  //   cy.get('.o-dOanIi').first().click();
-  //   cy.get('ul>li')
-  //   .find('div.o-cpNAVm')
-  //   .contains('Tata').click()
-
-  //   cy.contains('More Filter').click();
-  //   cy.get('ul>li').find('div.o-cpnuEd')
-  //   .find('div.o-bTDyCI')
-    // .contains('Mileage').scrollIntoView().click();
-
-    // cy.get('div.la6Zqh')
-    // .find('ul').find('li.NPguPr')
-    // .contains('Above 20 kmpl')
-    // .parent()
-    // .find('input[type="checkbox"]').as('check');
-    // cy.get('@check').check();
-    // cy.get('@check').uncheck();
-    // cy.get('@check').check();
-    // cy.get('.o-bUVylL').find('button.o-fcaNGp').contains('Apply Changes').click()
-  // })
+    cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').wait(2000);
+    cy.get('.o-cpnuEd').find('div.oROWc7').contains('Find New Cars').click();
+    cy.get('ul>li')
+    .find('div.o-cpNAVm')
+    .contains('Maruti Suzuki').click({force:true})
+    cy.wait(3000)
+    cy.contains('Maruti Fronx').click().wait(5000)
+    cy.get('iframe[title="3rd party ad content"]').first().click()
+    cy.wait(5000)
+    cy.window().then((win) => {
+      if (win.openedWindows && win.openedWindows.length > 0){
+      const newTab = win.openedWindows[0]; 
+        cy.wrap(newTab).then((tab) => {
+          tab.focus(); 
+         cy.contains("Book A Test Drive Now").should('be.visible')
+        });
+      }
+      else{
+        cy.log("no new window");
+      }    
+    });
+  })
 })
