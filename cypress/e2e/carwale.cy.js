@@ -3,15 +3,13 @@ describe('CarWale Website Tests', () => {
     cy.visitURL();
   });
 
-  it('should load the homepage', () => {
-    
+  it('should load the homepage', () => {   
     cy.get('div.o-eWcEwo').click()
     cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()
     cy.contains('FIND THE RIGHT CAR').should('be.visible');
   });
 
-  it('should search for a car', () => {
-    
+  it('should search for a car', () => {   
     cy.get('div.o-eWcEwo').click()
     cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()
     cy.get('[placeholder="Search"]').type('Honda City').wait(3000).type('{enter}');
@@ -38,6 +36,7 @@ describe('CarWale Website Tests', () => {
               cy.get('.o-cpnuEd').find('div.oROWc7').eq(index).click();
               cy.url().should('include', expectedUrl);
             });
+            //comments
           });
         }
     });
