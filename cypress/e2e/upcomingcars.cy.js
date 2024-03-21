@@ -1,6 +1,6 @@
 const { select } = require("xpath");
 
-describe('Cars', () => {
+describe('CarWale', () => {
   beforeEach(() => {
     cy.visitURL();
   });

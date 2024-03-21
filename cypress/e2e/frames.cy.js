@@ -14,9 +14,10 @@ describe('Cars', () => {
     .find('div.o-cpNAVm')
     .contains('Maruti Suzuki').click({force:true})
     cy.wait(3000)
-    cy.contains('Maruti Fronx').click().wait(5000)
-    cy.get('iframe[title="3rd party ad content"]').first().click()
-    cy.wait(5000)
+    cy.contains('Maruti Fronx').click().wait(3000)
+    cy.get('iframe[title="3rd party ad content"]')
+    .first().find('a#aw0').click()
+    cy.wait(3000)
     cy.window().then((win) => {
       if (win.openedWindows && win.openedWindows.length > 0){
       const newTab = win.openedWindows[0]; 
