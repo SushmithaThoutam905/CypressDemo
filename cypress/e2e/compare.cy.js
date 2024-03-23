@@ -2,7 +2,7 @@ describe('CarWale Compare Cars', () => {
   beforeEach(() => {
     cy.visitURL();
   });
-  it('should compare cars', () => {
+  it('compare cars,fixtures,arrays,variables,strings,math,alias', () => {
     
     cy.get('div.o-eWcEwo').click()
     cy.get('div.o-dsiSgT')

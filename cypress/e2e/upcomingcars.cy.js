@@ -5,7 +5,7 @@ describe('CarWale', () => {
     cy.visitURL();
   });
 
-  it('Dropdown selection', () => {
+  it('Dropdown selection,hidden elements', () => {
     
     cy.get('div.o-eWcEwo').click()
     cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()
@@ -57,5 +57,29 @@ describe('CarWale', () => {
     cy.get('@check').uncheck();
     cy.get('@check').check();
     cy.get('.o-bUVylL').find('button.o-fcaNGp').contains('Apply Changes').click()
+  })
+  it('tabs,child window', () => {   
+    cy.get('footer.o-eMNOzL')
+    .find('img.o-bXKmQE').last().click()
+    cy.get('a[title="Download Android App"]')
+    .invoke('removeAttr', 'target').click()
+    cy.url()
+    .should('include','https://play.google.com/')
+    cy.go('back')
+  })
+  it('jquery,web tables', () => {   
+    cy.get('div.o-eWcEwo').click()
+    cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()
+    cy.get('.o-bkmzIL').find('li').children().first().trigger('mouseover').invoke('show');
+    cy.contains('Find New Cars').click();
+    cy.wait(3000)
+    cy.request('/').get('ul>li')
+    // .find('div.o-cpNAVm').first()
+    .then(($lis) => {
+      $lis.each((index, li) => {
+        const divText = Cypress.$(li).find('div').text().trim();
+        cy.log(divText);
+      });
+    });
   })
 })
