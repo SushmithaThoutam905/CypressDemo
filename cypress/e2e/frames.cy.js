@@ -4,7 +4,7 @@ describe('Frames', () => {
   beforeEach(() => {
     cy.visitURL();
   });
-
+  
   it('frames', () => {   
     cy.get('div.o-eWcEwo').click()
     cy.get('div.o-dsiSgT').find('div.o-cKuOoN').children().eq(2).click()

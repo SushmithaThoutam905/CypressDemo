@@ -26,5 +26,10 @@ describe('Cars', () => {
   });
   it('post', ()=>{
     cy.request("https://www.carwale.com/api/makepagedata/?maskingName=maruti-suzuki&cityId=105&areaId=16453&platformId=1")
+    // .its('body.0')
+    // cy.request('POST', 'https://www.carwale.com/api/makepagedata/?maskingName=maruti-suzuki&cityId=105&areaId=16453&platformId=1/posts', {
+    //      title: 'Cypress',
+    //      body: 'Automation Tool',
+  // })
    }) 
 })
